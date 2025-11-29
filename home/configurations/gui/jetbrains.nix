@@ -1,8 +1,10 @@
 { pkgs, lib, ... }:
 {
-  home.packages = with pkgs.jetbrains; [
-    rust-rover
-    idea-community-bin
- #   idea-ultimate
+  home.packages = with pkgs; [
+    jetbrains.rust-rover
+    jetbrains.idea-community-bin
+    #   idea-ultimate
+
+    android-tools
   ];
 }
