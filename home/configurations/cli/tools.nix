@@ -5,5 +5,6 @@
     btop-cuda
     p7zip
     pakku
+    jellyfin-tui
   ];
 }
