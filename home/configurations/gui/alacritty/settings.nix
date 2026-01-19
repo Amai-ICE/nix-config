@@ -17,7 +17,10 @@
         };
       };
       window = {
+        decorations = "None";
         opacity = 0.65;
+        blur = true;
+        dynamic_title = false;
       };
     };
   };
