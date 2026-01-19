@@ -19,20 +19,37 @@
     "/.swapvol".options = [ "noatime" ];
   };
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.initrd.kernelModules = [
-    "nvidia"
-    "i915"
-    "nvidia_modeset"
-    "nvidia_uvm"
-    "nvidia_drm"
+  swapDevices = [
+    {
+      device = "/.swapvol/swapfile";
+      size = 16 * 1024;
+    }
   ];
-  zramSwap.enable = true;
+
+  # Use the systemd-boot EFI boot loader.
+  boot = {
+    kernelParams = [
+      "zswap.enabled=1"
+      "zswap.compressor=zstd"
+      "zswap.max_pool_percent=20"
+      "zswap.shrinker_enabled=1"
+    ];
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_xanmod;
+    initrd = {
+      systemd.enable = true;
+      kernelModules = [
+        "nvidia"
+        "i915"
+        "nvidia_modeset"
+        "nvidia_uvm"
+        "nvidia_drm"
+      ];
+    };
+  };
 
   networking = {
     hostName = "nixos";
@@ -51,6 +68,8 @@
         }
       ];
       allowedTCPPorts = [
+        67
+        53
         8006
         9090
         5037
@@ -71,6 +90,14 @@
         }
       ];
     };
+    /*
+        wireless = {
+          enable = true;
+          networks = {
+            "aterm-e74f75-a".pskRaw = "29d19337ffcd86b13cc651a85c83adeb384f32249e8453ced5a86f285eaed642"; # (password will be written to /nix/store!)
+          };
+        };
+    */
     defaultGateway = {
       address = "192.168.10.1";
       interface = "enp4s0";
@@ -89,13 +116,6 @@
         "nix-command"
         "flakes"
       ];
-    };
-
-    #7日ごとにgcを実行する.
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
     };
   };
   # networking.hostName = "nixos"; # Define your hostname.
@@ -168,8 +188,29 @@
 
   };
 
+  services = {
+    printing = {
+      enable = true;
+
+      drivers = with pkgs; [
+        brgenml1lpr
+      ];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+  };
+
   # enable Universal Wayland Session Manager.
   programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 3 --keep-since 7d";
+      flake = "/home/amaiice/.nixos_confg";
+    };
     fuse = {
       enable = true;
     };
@@ -189,10 +230,11 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
-
-    adb = {
-      enable = true;
-    };
+    /*
+        adb = {
+          enable = true;
+        };
+    */
 
     git = {
       enable = true;
@@ -215,8 +257,6 @@
       "input"
     ];
   };
-  services.udev.packages = [
-  ];
 
   services = {
     wivrn = {
@@ -233,10 +273,11 @@
       };
     };
   };
-
-  services.udev.extraRules = ''
-    SUBSYSTEMS=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0186", MODE="0666", GROUP="plugdev" 
-  '';
+  /*
+    services.udev.extraRules = ''
+      SUBSYSTEMS=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="0186", MODE="0666", GROUP="plugdev"
+    '';
+  */
   /*
       programs.alvr = {
       enable = true;
@@ -244,9 +285,10 @@
       openFirewall = true;
     };
   */
-
+  virtualisation.waydroid.enable = true;
   environment.pathsToLink = [ "/jdks" ];
   environment.systemPackages = with pkgs; [
+    androidenv.androidPkgs.platform-tools
     direnv
     perf
     gnupg
@@ -428,7 +470,10 @@
   };
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver = {
+    enable = true;
+    xkb.layout = "jp";
+  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
