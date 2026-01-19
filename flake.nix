@@ -10,6 +10,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    astal.url = "github:aylur/astal";
+    ags.url = "github:aylur/ags";
   };
 
   outputs =
@@ -27,7 +29,7 @@
             config.allowUnfree = true;
           };
           extraSpecialArgs = {
-            inherit nixvim;
+            inherit nixvim inputs;
           };
           modules = [
             ./home/configurations
