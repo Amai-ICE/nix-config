@@ -5,6 +5,7 @@
     jetbrains.idea-community-bin
     #   idea-ultimate
 
-    android-tools
+    #android-studio
+    androidStudioPackages.dev
   ];
 }
