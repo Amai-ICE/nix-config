@@ -6,16 +6,9 @@
 }:
 
 {
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "discord"
-      "rust-rover"
-      "reaper"
-      "vital"
-      "idea-ultimate"
-    ];
-
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home = {
@@ -35,10 +28,10 @@
   home.packages = with pkgs; [
     discord
     bottom
- #   kio-fuse
-     kdePackages.qtsvg
-        kdePackages.kio-fuse #to mount remote filesystems via FUSE
-    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
+    #   kio-fuse
+    kdePackages.qtsvg
+    kdePackages.kio-fuse # to mount remote filesystems via FUSE
+    kdePackages.kio-extras # extra protocols support (sftp, fish and more)
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.polkit-kde-agent-1
@@ -54,9 +47,12 @@
     vital
     gimp
 
+    source-han-code-jp
+
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
   ];
 
   fonts.fontconfig = {
@@ -90,5 +86,6 @@
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
+    lutris.enable = true;
   };
 }
