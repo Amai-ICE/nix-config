@@ -271,7 +271,7 @@
       openFirewall = true;
       autoStart = true;
       config.json = {
-        application = [ pkgs.wlx-overlay-s ];
+        application = [ pkgs.wayvr ];
       };
     };
   };
