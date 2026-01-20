@@ -8,48 +8,73 @@
     settings = {
       bar = {
         density = "compact";
-        position = "right";
+        position = "top";
         showCapsule = false;
         widgets = {
           left = [
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-            }
-            {
-              id = "Network";
-            }
-            {
-              id = "Bluetooth";
-            }
-          ];
-          center = [
             {
               hideUnoccupied = false;
               id = "Workspace";
               labelMode = "none";
             }
           ];
+
+          center = [
+            { id = "ActiveWindow"; }
+          ];
           right = [
+            { id = "Tray"; }
+            { id = "NotificationHistory"; }
             {
+              id = "Network";
+            }
+            {
+              id = "Bluetooth";
+            }
+
+            {
+              id = "Clock";
               formatHorizontal = "HH:mm";
               formatVertical = "HH mm";
-              id = "Clock";
               useMonospacedFont = true;
               usePrimaryColor = true;
+            }
+            {
+              id = "ControlCenter";
             }
           ];
         };
       };
-      colorSchemes.predefinedScheme = "Monochrome";
+      colorSchemes.predefinedScheme = "Kanagawa";
       general = {
-        avatarImage = "/home/drfoobar/.face";
+        avatarImage = "/home/amaiice/.face";
         radiusRatio = 0.2;
       };
       location = {
         monthBeforeDay = true;
-        name = "Marseille, France";
+        name = "Japan,";
+      };
+      notifications = {
+        enabled = true;
+        location = "top_right";
+        overlayLayer = true;
+        backgroundOpacity = 1;
+        respectExpireTimeout = false;
+        lowUrgencyDuration = 3;
+        normalUrgencyDuration = 8;
+        criticalUrgencyDuration = 15;
+        enableKeyboardLayoutToast = true;
+        enableMediaToast = true;
+        saveToHistory = {
+          low = true;
+          normal = true;
+          critical = true;
+        };
       };
     };
+
+    # noctalia daemon.
+    systemd.enable = true;
   };
+
 }
