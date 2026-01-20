@@ -175,6 +175,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
+  hardware.bluetooth.enable = true;
+
   # nixpkgs.config.cudaSupport = true;
 
   # Enable the X11 windowing system.

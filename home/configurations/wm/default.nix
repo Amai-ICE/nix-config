@@ -2,6 +2,6 @@
   imports = [
     #./hyprland
     ./niri
-    ./wallpaper.nix
+    #    ./wallpaper.nix
   ];
 }
