@@ -18,10 +18,11 @@
               id = "Workspace";
               labelMode = "none";
             }
+            { id = "ActiveWindow"; }
           ];
 
           center = [
-            { id = "ActiveWindow"; }
+            { id = "MediaMini"; }
           ];
           right = [
             { id = "Tray"; }
@@ -35,8 +36,8 @@
 
             {
               id = "Clock";
-              formatHorizontal = "HH:mm";
-              formatVertical = "HH mm";
+              formatHorizontal = "yyyy/MM/dd HH:mm";
+              formatVertical = "HH:mm";
               useMonospacedFont = true;
               usePrimaryColor = true;
             }
@@ -76,6 +77,14 @@
           normal = true;
           critical = true;
         };
+        sounds = {
+          excluededApps = "discord,firefox";
+        };
+      };
+
+      audio = {
+        preferredPlayer = "mpv";
+        mprisBlacklist = [ "firefox" ];
       };
     };
 
