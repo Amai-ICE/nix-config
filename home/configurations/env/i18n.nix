@@ -12,4 +12,8 @@
       qt6Packages.fcitx5-configtool
     ];
   };
+  # source form https://zenn.dev/link/comments/5827d19c893ee0
+  home.sessionVariables = {
+    QT_IM_MODULE = "fcitx qutebrowser";
+  };
 }
