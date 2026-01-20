@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./noctalia.nix
+  ];
+
   home.packages = with pkgs; [
     #ironbar
     hicolor-icon-theme
