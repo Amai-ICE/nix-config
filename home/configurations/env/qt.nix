@@ -3,22 +3,19 @@
 {
   qt = {
     enable = true;
+    platformTheme.name = "kde6";
 
-    platformTheme = "qtct";
     style = {
-      name = "fusion";
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze;
     };
   };
-  home = {
-    packages = with pkgs; [
-      kdePackages.qt6ct
-      kdePackages.qtstyleplugin-kvantum
-    ];
 
-    sessionVariables = {
-      QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
-      QT_STYLE_OVERRIDE = "fusion";
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
     };
-
   };
 }
