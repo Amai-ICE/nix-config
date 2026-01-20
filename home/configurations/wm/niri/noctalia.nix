@@ -7,7 +7,8 @@
 
     settings = {
       bar = {
-        density = "compact";
+        density = "default";
+        backgroundOpacity = 0.20;
         position = "top";
         showCapsule = false;
         widgets = {
@@ -44,6 +45,11 @@
             }
           ];
         };
+      };
+      wallpaper = {
+        enabled = true;
+        overviewEnabled = true;
+        directory = "~/wallpaper/";
       };
       colorSchemes.predefinedScheme = "Kanagawa";
       general = {
