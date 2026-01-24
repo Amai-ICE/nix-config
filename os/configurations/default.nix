@@ -1,11 +1,13 @@
 {
-  # インポートだけ書く..
-  # envとかの設定がいるなら別ファイルにする
-  imports = [
-    ./fish.nix
-    ./development
-    ./drawingtablet.nix
-    ./xserver.nix
-    ./steam.nix
-  ];
+  modulesystem,
+}:
+let
+  modules = {
+    xserver = ./xserver.nix;
+    fish = ./fish.nix;
+    steam = ./steam.nix;
+    dev = ./development/default.nix;
+  };
+in
+{
 }

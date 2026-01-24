@@ -25,31 +25,24 @@
       nixvim,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
-      homeConfigurations = {
-        amaiice = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {
-            inherit nixvim inputs;
-          };
-          modules = [
-            ./home/configurations
-          ];
-        };
-      };
       nixosConfigurations = {
-        nixos = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        desktop = inputs.nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
-            ./configuration.nix
-            ./os/configurations
+            ./hosts/default.nix
+            /*
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.users.${username} = import ./home;
+                home-manager.useGlobalPkgs = true;
+              }
+            */
           ];
-          specialArgs = {
-            inherit inputs;
-          };
         };
       };
     };
