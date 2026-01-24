@@ -32,7 +32,6 @@
       nixosConfigurations = {
         nixos = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
           modules = [
             ./os/default.nix
             ./config/default.nix

@@ -27,6 +27,6 @@
 
   my.os = {
     systemd-boot.enable = true;
-    networkmanager = true;
+    networkmanager.enable = true;
   };
 }

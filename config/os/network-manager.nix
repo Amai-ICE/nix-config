@@ -1,4 +1,4 @@
 { lib, ... }:
 {
-  options.my.os.network-manager.enable = lib.mkEnableOption "network-manager";
+  options.my.os.networkmanager.enable = lib.mkEnableOption "network-manager";
 }
