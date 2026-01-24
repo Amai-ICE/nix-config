@@ -23,8 +23,6 @@
     ];
   };
 
-  services.getty.autologinUser = "amaiice";
-
   my.os = {
     systemd-boot.enable = true;
     networkmanager.enable = true;
