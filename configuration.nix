@@ -52,6 +52,41 @@
   };
 
   networking = {
+    networkmanager = {
+      enable = true;
+      /*
+            ethernet = {
+              macAddress = "34:5a:60:77:93:69";
+            };
+      */
+      ensureProfiles = {
+
+        profiles = {
+          eth0 = {
+            connection = {
+              id = "eth0";
+              type = "ethernet";
+              interface-name = "enp4s0";
+            };
+
+            ipv4 = {
+              method = "manual";
+              dns = "1.1.1.1;1.0.0.1;";
+              dns-search = "192.168.10.0";
+              address1 = "192.168.10.128/24";
+              gateway = "192.168.10.1";
+              ignore-auto-dns = true;
+              ignore-auto-routes = true;
+              may-fail = false;
+            };
+            ipv6 = {
+              method = "disabled";
+            };
+          };
+        };
+
+      };
+    };
     hostName = "nixos";
     hosts = {
       "192.168.10.57" = [
@@ -82,30 +117,25 @@
         }
       ];
     };
-    interfaces.enp4s0 = {
-      ipv4.addresses = [
-        {
-          address = "192.168.10.128";
-          prefixLength = 24;
-        }
-      ];
-    };
     /*
-        wireless = {
-          enable = true;
-          networks = {
-            "aterm-e74f75-a".pskRaw = "29d19337ffcd86b13cc651a85c83adeb384f32249e8453ced5a86f285eaed642"; # (password will be written to /nix/store!)
-          };
+        defaultGateway = {
+          address = "192.168.10.1";
+          interface = "enp4s0";
         };
+        nameservers = [
+          "1.1.1.1"
+          "1.0.0.1"
+          "8.8.8.8"
+        ];
     */
-    defaultGateway = {
-      address = "192.168.10.1";
-      interface = "enp4s0";
-    };
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
+    /*
+          wireless = {
+            enable = true;
+            networks = {
+              "aterm-e74f75-a".pskRaw = "29d19337ffcd86b13cc651a85c83adeb384f32249e8453ced5a86f285eaed642"; # (password will be written to /nix/store!)
+            };
+          };
+    */
 
   };
 
@@ -207,6 +237,7 @@
 
   # enable Universal Wayland Session Manager.
   programs = {
+    gpu-screen-recorder.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
