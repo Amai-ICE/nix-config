@@ -30,7 +30,7 @@
     in
     {
       nixosConfigurations = {
-        desktop = inputs.nixpkgs.lib.nixosSystem {
+        nixos = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
