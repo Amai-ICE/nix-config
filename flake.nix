@@ -33,16 +33,37 @@
         nixos = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            ./hosts/common/network-profiles.nix
+            ./hosts/common/hardware-configuration.nix
+
+            ./config/home/default.nix
+            ./config/os/default.nix
+
             ./os/default.nix
-            ./config/default.nix
+
             ./hosts/default.nix
-            /*
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.users.${username} = import ./home;
-                home-manager.useGlobalPkgs = true;
-              }
-            */
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = [
+                ./config/home/default.nix
+              ];
+              home-manager.users.amaiice = import ./home/default.nix;
+            }
+          ];
+        };
+      };
+      homeConfigurations = {
+        amaiice = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./config/home/default.nix
+            ./home/default.nix
+            ./hosts/home-desktop.nix
           ];
         };
       };

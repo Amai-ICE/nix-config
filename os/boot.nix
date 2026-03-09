@@ -1,10 +1,25 @@
 { lib, config, ... }:
-{
-  config = lib.mkIf config.my.os.systemd-boot.enable {
-    # systemd-bootを有効化.
-    boot.loader.systemd-boot.enable = true;
-    # boot時に必要な設定をNixに生成させるかどうかの設定.
-    # 無いと手動設定しないといけない.
-    boot.loader.efi.canTouchEfiVariables = true;
-  };
+let cfg = config.my.os.boot; in {
+  config.boot = lib.mkMerge [
+    {
+      initrd.systemd.enable = cfg.useSystemdInitrd;
+    }
+    (lib.mkIf (cfg.kernelPackage != null) {
+      kernelPackages = cfg.kernelPackage;
+    })
+
+    (lib.mkIf cfg.systemd-boot.enable {
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+    })
+
+    {
+      initrd.kernelModules = lib.mkIf cfg.nvidiaKernelModule.enable [
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_uvm"
+        "nvidia_drm"
+      ];
+    }
+  ];
 }
