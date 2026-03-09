@@ -5,6 +5,7 @@
   ...
 }:
 {
+  system.stateVersion = "25.05";
     networking.hostName = "nixos";
   users.users."amaiice" = {
     isNormalUser = true;
@@ -95,7 +96,7 @@
     };
     nix-ld = {
       enable = true;
-      allowReplaceLDLibraryPath = true;
+      allowReplaceLDLibraryPath = false;
     };
     i18n = {
       locale.jp = true;
