@@ -1,5 +1,5 @@
 { config, lib, ... }:
-let cfg = options.my.os.services; in {
+let cfg = config.my.os.services; in {
   services = {
     printing.enable = cfg.printing.enable;
     ssh.enable = cfg.ssh.enable;
