@@ -42,6 +42,7 @@
             ./os/default.nix
 
             ./hosts/desktop.nix
+            /*
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -52,7 +53,7 @@
                 ./config/home/default.nix
               ];
               home-manager.users.amaiice = import ./home/default.nix;
-            }
+            }*/
           ];
         };
       };
