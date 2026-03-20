@@ -12,5 +12,6 @@
     ./nix.nix
     ./pipewire.nix
     ./xserver.nix
+    ./services.nix
   ];
 }
