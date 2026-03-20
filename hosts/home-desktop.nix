@@ -55,6 +55,7 @@
         products = with pkgs; [
           jetbrains.idea
           jetbrains.rust-rover
+          jetbrains.rider
           androidStudioPackages.dev
         ];
       };
