@@ -88,7 +88,7 @@
     game = {
       steam = { enable = true; openFirewall = true; };
       lutris.enable = true;
-      wivrn = { enable = true; cudaSupport = true; openFirewall = true; autoStart = true; };
+      wivrn = { enable = true; cudaSupport = true; openFirewall = true; autoStart = true; wayvr = true; };
     };
 
     xserver = {
