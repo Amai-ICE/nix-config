@@ -3,6 +3,5 @@
   options.my.os.services = {
     kdeconnect.enable = lib.mkEnableOption "Whether to enable KDE Connect.";
     printing.enable = lib.mkEnableOption "Whether to enable printing.";
-    ssh.enable = lib.mkEnableOption "Whether to enable ssh.";
   };
 }

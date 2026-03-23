@@ -59,7 +59,6 @@
 
     services = {
       printing.enable = true;
-      ssh.enable = true;
       kdeconnect.enable = true;
     };
 
