@@ -13,6 +13,7 @@
       cudaSupport = lib.mkEnableOption "Enable CUDA support in Wivrn package";
       openFirewall = lib.mkEnableOption "Open firewall for Wivrn";
       autoStart = lib.mkEnableOption "Auto start Wivrn service on login";
+      wayvr = lib.mkEnableOption "Enable WayVR in Wivrn";
     };
   };
 }

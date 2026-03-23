@@ -21,7 +21,7 @@ let cfg = config.my.os.game; in
       openFirewall = cfg.wivrn.openFirewall;
       autoStart = cfg.wivrn.autoStart;
       config.json = {
-        #application = [ pkgs.wayvr ];
+        application = [ (lib.mkIf cfg.wayvr.enable pkgs.wayvr) ];
       };
     };
 
