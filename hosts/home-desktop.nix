@@ -13,8 +13,10 @@
     terminal = {
       decoration = {
         enable = true;
-        fish.enable = true;
         starship.enable = true;
+      };
+      shell = {
+        fish.enable = true;
       };
       kitty.enable = true;
     };
@@ -50,6 +52,7 @@
       lazygit.enable = true;
       nixvim.enable = true;
       unityhub.enable = true;
+      nixfmt.enable = true;
       jetbrains = {
         enable = true;
         products = with pkgs; [
@@ -76,7 +79,12 @@
     game = {
       prismlauncher = {
         enable = true;
-        jdks = with pkgs; [ zulu8 zulu17 zulu21 zulu25 ];
+        jdks = with pkgs; [
+          zulu8
+          zulu17
+          zulu21
+          zulu25
+        ];
       };
     };
 
