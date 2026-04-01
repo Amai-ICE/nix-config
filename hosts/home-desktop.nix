@@ -16,6 +16,10 @@
         starship = {
           enable = true;
         };
+        style = {
+          #type = "powerline";
+          theme = "rainbow";
+        };
       };
 
       type = "kitty";
