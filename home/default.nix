@@ -3,6 +3,7 @@
     ./terminal
 
     ./art.nix
+    ./bashrc.nix
     ./browser.nix
     ./communication.nix
     ./daw.nix

@@ -8,9 +8,9 @@ let
   cfg = config.my.home.terminal;
 in
 {
-  programs = lib.mkMerge [
+  config = lib.mkMerge [
     (lib.mkIf (cfg.type == "kitty") {
-      kitty = {
+      programs.kitty = {
         enable = true;
         shellIntegration.enableFishIntegration = cfg.shell.fish.enable;
 
@@ -25,10 +25,11 @@ in
           dynamic_background_opacity = "yes";
         };
       };
-
+      # SSHのエイリアスを上書きする用
+      my.home.bashrc.kittyIntegration = true;
     })
     (lib.mkIf (cfg.type == "alacritty") {
-      alacritty.enable = true;
+      programs.alacritty.enable = true;
     })
   ];
 }

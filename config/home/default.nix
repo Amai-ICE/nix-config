@@ -1,6 +1,7 @@
 { options, ... }:
 {
   imports = [
+    ./bashrc.nix
     ./theme.nix
     ./record.nix
     ./noctaliashell.nix
