@@ -43,17 +43,18 @@
 
             ./hosts/desktop.nix
             /*
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hm-bak";
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [
-                ./config/home/default.nix
-              ];
-              home-manager.users.amaiice = import ./home/default.nix;
-            }*/
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.backupFileExtension = "hm-bak";
+                home-manager.extraSpecialArgs = { inherit inputs; };
+                home-manager.sharedModules = [
+                  ./config/home/default.nix
+                ];
+                home-manager.users.amaiice = import ./home/default.nix;
+              }
+            */
           ];
         };
       };

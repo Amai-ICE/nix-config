@@ -1,7 +1,15 @@
-{ config, pkgs, inputs, lib, ... }:
-let cfg = config.my.home.development; in
 {
-  imports = [inputs.nixvim.homeManagerModules.nixvim];
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+let
+  cfg = config.my.home.development;
+in
+{
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
   home.packages =
     (lib.optionals cfg.jetbrains.enable cfg.jetbrains.products)
@@ -9,16 +17,17 @@ let cfg = config.my.home.development; in
     ++ (lib.optionals cfg.nixfmt.enable [ pkgs.nixfmt ]);
 
   programs.vscode = lib.mkIf cfg.vscode.enable {
-      enable = true;
-      /*
+    enable = true;
+    /*
       extensions = [
         # DEFAULT EXTENSIONS
         "GitHub.copilot-chat"
         "MS-CEINTL.vscode-language-pack-ja"
-        
+
         #lib.mkIf cfg.vscode.extensions.nixIDE("bbenoist.Nix" "jnoortheen.nix-ide" "martinring.nix")
-      ];*/
-    };  
+      ];
+    */
+  };
 
   programs.direnv.enable = cfg.direnv.enable;
   programs.git.enable = cfg.git.enable;

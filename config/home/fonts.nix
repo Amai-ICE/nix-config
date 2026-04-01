@@ -4,23 +4,23 @@
     enable = lib.mkEnableOption "Enable font settings";
     preferredFonts = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = [];
+      default = [ ];
       description = "Preferred font packages";
     };
     fontconfig.defaultFonts = {
       sansSerif = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = [];
+        default = [ ];
         description = "Default sans-serif fonts";
       };
       nerdmono = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = [];
+        default = [ ];
         description = "Default monospace fonts";
       };
       emoji = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = [];
+        default = [ ];
         description = "Default emoji fonts";
       };
     };

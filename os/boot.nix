@@ -1,5 +1,8 @@
 { lib, config, ... }:
-let cfg = config.my.os.boot; in {
+let
+  cfg = config.my.os.boot;
+in
+{
   config.boot = lib.mkMerge [
     {
       initrd.systemd.enable = cfg.useSystemdInitrd;

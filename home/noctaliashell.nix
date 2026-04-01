@@ -1,8 +1,16 @@
-{inputs, config, lib, pkgs, ... }:
-let cfg = config.my.home.noctaliashell; in
 {
-  imports = [inputs.noctalia.homeModules.default];
-  
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.my.home.noctaliashell;
+in
+{
+  imports = [ inputs.noctalia.homeModules.default ];
+
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.gpu-screen-recorder

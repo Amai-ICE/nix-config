@@ -1,4 +1,4 @@
-{ options, lib, ...}:
+{ options, lib, ... }:
 {
   options.my.os.pipewire = {
     enable = lib.mkEnableOption "Enable Pipewire for audio management";

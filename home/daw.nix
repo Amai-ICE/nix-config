@@ -1,5 +1,12 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.my.home.daw ; in
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.my.home.daw;
+in
 {
   home.packages = with pkgs; [
     (lib.mkIf cfg.vital.enable vital)

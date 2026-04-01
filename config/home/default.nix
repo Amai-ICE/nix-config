@@ -1,4 +1,4 @@
-{options, ...}:
+{ options, ... }:
 {
   imports = [
     ./theme.nix
@@ -16,7 +16,7 @@
     ./art.nix
     ./i18n.nix
     ./windowManager.nix
-    
+
     ./terminal/default.nix
   ];
 }

@@ -1,5 +1,7 @@
-{lib, config, ...}:
-let cfg = config.my.os.graphic; in
+{ lib, config, ... }:
+let
+  cfg = config.my.os.graphic;
+in
 {
   config = lib.mkIf cfg.enable {
     hardware.graphics = {

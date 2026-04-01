@@ -1,4 +1,4 @@
-{ options, lib, ...}:
+{ options, lib, ... }:
 {
   options.my.os.xserver = {
     enable = lib.mkEnableOption "Enable X Server";

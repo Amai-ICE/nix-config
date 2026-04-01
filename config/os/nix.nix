@@ -1,4 +1,4 @@
-{ options, lib, ...}: 
+{ options, lib, ... }:
 {
   options.my.os.nix = {
     enable = lib.mkEnableOption "Enable Nix package manager";

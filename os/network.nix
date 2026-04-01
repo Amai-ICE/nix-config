@@ -1,5 +1,7 @@
 { lib, config, ... }:
-let cfg = config.my.os.network; in
+let
+  cfg = config.my.os.network;
+in
 {
   config = {
     networking.networkmanager = lib.mkIf cfg.networkmanager.enable {

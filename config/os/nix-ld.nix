@@ -1,4 +1,4 @@
-{ options, lib, ...}:
+{ options, lib, ... }:
 {
   options.my.os.nix-ld = {
     enable = lib.mkEnableOption "Enable nix-ld for non-root nix usage";

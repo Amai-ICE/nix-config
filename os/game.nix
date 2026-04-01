@@ -1,5 +1,12 @@
-{ pkgs, config, lib, ... }:
-let cfg = config.my.os.game; in
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.my.os.game;
+in
 {
   config = {
     programs.steam = lib.mkIf cfg.steam.enable {

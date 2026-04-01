@@ -1,4 +1,4 @@
-{ options, lib, ...}: 
+{ options, lib, ... }:
 {
   options.my.os.i18n = {
     locale = {

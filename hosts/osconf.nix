@@ -1,5 +1,10 @@
 # ittann tundanode idou
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   networking.hostName = "nixos";

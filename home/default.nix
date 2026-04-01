@@ -1,7 +1,7 @@
 {
   imports = [
     ./terminal
-    
+
     ./art.nix
     ./browser.nix
     ./communication.nix

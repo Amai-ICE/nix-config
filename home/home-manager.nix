@@ -1,5 +1,7 @@
 { config, lib, ... }:
-let cfg = config.my.home.home-manager; in
+let
+  cfg = config.my.home.home-manager;
+in
 {
   home.stateVersion = "25.05";
   home.username = lib.mkForce "amaiice";

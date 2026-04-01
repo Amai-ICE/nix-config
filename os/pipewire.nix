@@ -1,4 +1,4 @@
-{lib, config, ...}:
+{ lib, config, ... }:
 {
   config = lib.mkIf config.my.os.pipewire.enable {
     # Enable Pipewire for audio management

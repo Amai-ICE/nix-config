@@ -1,4 +1,4 @@
-{ options, lib, ...}:
+{ options, lib, ... }:
 {
   options.my.os.graphic = {
     enable = lib.mkEnableOption "Enable graphic related settings";
