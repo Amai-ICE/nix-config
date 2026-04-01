@@ -34,5 +34,17 @@ in
       };
       my.home.bashrc.fishIntegration = true;
     })
+    (lib.mkIf (cfg.type == "zsh") {
+      programs.zsh = {
+        enable = true;
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
+        #initContent = lib.mkBefore "source ${./p10k.zsh}";
+        initContent = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      };
+
+      # いるかわからん -> my.home.bashrc.zshIntegration = true;
+    })
   ];
 }
