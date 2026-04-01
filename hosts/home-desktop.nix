@@ -18,7 +18,6 @@
       shell = {
         fish.enable = true;
       };
-      kitty.enable = true;
     };
 
     fonts = {
