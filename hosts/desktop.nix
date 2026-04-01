@@ -95,6 +95,8 @@
       enable = true;
       layout = "jp";
       xkb.layout = "jp";
+
+      nvidiacompability.enable = true;
     };
     nix-ld = {
       enable = true;
