@@ -10,27 +10,29 @@ in
 {
   # enableFishIntegrationはenableShellIntegrationでグローバルに有効化されているので多分いらない
   #home.shell.enableFishIntegration = lib.mkIf cfg.fish.enable true;
-  config = {
-    programs.fish = lib.mkIf cfg.fish.enable {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting
-      ''
-      /*
-        + lib.optionalString cfg.fastfetch.enable ''
-          fastfetch
+  config = lib.mkMerge [
+    (lib.mkIf (cfg == "fish") {
+      programs.fish = {
+        enable = true;
+        interactiveShellInit = ''
+          set fish_greeting
         ''
-      */
-      + lib.optionalString config.my.home.terminal.decoration.starship.enable ''
-        starship init fish | source
-      ''
-      /*
-        + lib.optionalString cfg.direnv.enable ''
-          direnv hook fish | source
+        /*
+          + lib.optionalString cfg.fastfetch.enable ''
+            fastfetch
+          ''
+        */
+        + lib.optionalString config.my.home.terminal.decoration.starship.enable ''
+          starship init fish | source
         ''
-      */
-      ;
-    };
-    my.home.bashrc.fishIntegration = cfg.fish.enable;
-  };
+        /*
+          + lib.optionalString cfg.direnv.enable ''
+            direnv hook fish | source
+          ''
+        */
+        ;
+      };
+      my.home.bashrc.fishIntegration = true;
+    })
+  ];
 }

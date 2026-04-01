@@ -1,7 +1,13 @@
 { options, lib, ... }:
 {
-
   options.my.home.terminal.shell = {
-    fish.enable = lib.mkEnableOption "Enable fish shell";
+    type = lib.mkOption {
+      type = lib.types.enum [
+        "fish"
+        "zsh"
+      ];
+      default = "fish";
+      description = "Shell type";
+    };
   };
 }
