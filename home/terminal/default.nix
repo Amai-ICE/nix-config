@@ -1,6 +1,6 @@
 {
   imports = [
-    ./kitty.nix
+    ./type.nix
     ./decoration.nix
   ];
 }
