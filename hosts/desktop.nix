@@ -93,6 +93,8 @@
 
     xserver = {
       enable = true;
+      layout = "jp";
+      xkb.layout = "jp";
     };
     nix-ld = {
       enable = true;
