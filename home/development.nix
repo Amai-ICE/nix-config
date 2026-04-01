@@ -5,7 +5,9 @@ let cfg = config.my.home.development; in
 
   home.packages =
     (lib.optionals cfg.jetbrains.enable cfg.jetbrains.products)
-    ++ (lib.optionals cfg.unityhub.enable [ pkgs.unityhub ]);
+    ++ (lib.optionals cfg.unityhub.enable [ pkgs.unityhub ])
+    ++ (lib.optionals cfg.nixfmt.enable [ pkgs.nixfmt ]);
+
   programs.vscode = lib.mkIf cfg.vscode.enable {
       enable = true;
       /*

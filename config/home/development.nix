@@ -13,6 +13,7 @@
     lazygit.enable = lib.mkEnableOption "Enable lazygit";
     nixvim.enable = lib.mkEnableOption "Enable nixvim";
     unityhub.enable = lib.mkEnableOption "Enable Unity Hub";
+    nixfmt.enable = lib.mkEnableOption "Enable nixfmt";
     jetbrains = { 
       enable = lib.mkEnableOption "Enable JetBrains toolbox/products";
       products = lib.mkOption {
