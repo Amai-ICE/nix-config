@@ -13,13 +13,12 @@
     terminal = {
       decoration = {
         enable = true;
-        starship.enable = true;
       };
 
       type = "kitty";
 
       shell = {
-        type = "fish";
+        type = "zsh";
       };
     };
 
