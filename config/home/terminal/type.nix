@@ -6,7 +6,7 @@
         "kitty"
         "alacritty"
       ];
-      default = "kitty";
+      default = "#EMPTY#";
       description = "Terminal emulator type";
     };
   };

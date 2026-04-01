@@ -6,7 +6,7 @@
         "fish"
         "zsh"
       ];
-      default = "fish";
+      default = "#EMPTY#";
       description = "Shell type";
     };
   };
