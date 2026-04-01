@@ -11,7 +11,7 @@ in
   # enableFishIntegrationはenableShellIntegrationでグローバルに有効化されているので多分いらない
   #home.shell.enableFishIntegration = lib.mkIf cfg.fish.enable true;
   config = lib.mkMerge [
-    (lib.mkIf (cfg == "fish") {
+    (lib.mkIf (cfg.type == "fish") {
       programs.fish = {
         enable = true;
         interactiveShellInit = ''

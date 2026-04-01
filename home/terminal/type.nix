@@ -12,7 +12,7 @@ in
     (lib.mkIf (cfg.type == "kitty") {
       programs.kitty = {
         enable = true;
-        shellIntegration.enableFishIntegration = cfg.shell.fish.enable;
+        shellIntegration.enableFishIntegration = cfg.shell.type == "fish";
 
         font.name =
           if config.my.home.fonts.enable && config.my.home.fonts.fontconfig.defaultFonts.nerdmono != [ ] then

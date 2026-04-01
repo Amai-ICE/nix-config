@@ -16,7 +16,7 @@
         starship.enable = true;
       };
       shell = {
-        fish.enable = true;
+        type = "fish";
       };
     };
 
