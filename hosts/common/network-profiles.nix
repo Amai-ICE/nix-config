@@ -1,4 +1,6 @@
 {
+  # TODO: アドレスはどう考えてもcommonじゃない
+  # 移動するべき
   networking.networkmanager.ensureProfiles.profiles = {
     eth0 = {
       connection = {
