@@ -27,7 +27,7 @@ let
   cfg = config.my.home.terminal.decoration.style.theme;
 in
 {
-  config = lib.mkIf (cfg == "m365princess") {
+  config = lib.mkIf (cfg == "rainbow") {
     my.home.terminal.decoration.style.color = {
       inherit
         c0
