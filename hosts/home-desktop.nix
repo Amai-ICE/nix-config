@@ -15,6 +15,9 @@
         enable = true;
         starship.enable = true;
       };
+      terminal = {
+        type = "kitty";
+      };
       shell = {
         type = "fish";
       };
