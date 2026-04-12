@@ -5,5 +5,6 @@
     jellyfinTUI.enable = lib.mkEnableOption "Enable jellyfin-tui";
     yt-dlp.enable = lib.mkEnableOption "Enable yt-dlp";
     pavucontrol.enable = lib.mkEnableOption "Enable pavucontrol";
+    feishin.enable = lib.mkEnableOption "Enable feishin";
   };
 }
