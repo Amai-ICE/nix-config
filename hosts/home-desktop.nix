@@ -113,6 +113,7 @@
       yt-dlp.enable = true;
       vlc.enable = true;
       jellyfinTUI.enable = true;
+      feishin.enable = true;
     };
 
     theme = {
