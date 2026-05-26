@@ -63,6 +63,9 @@
         };
       };
       homeConfigurations = {
+        # ホストのパッケージを再利用することでunfreeの設定が矯正される...ハズ?
+        home-manager.useGlobalPkgs = true;
+
         amaiice = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
