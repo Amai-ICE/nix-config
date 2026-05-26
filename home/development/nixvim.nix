@@ -16,6 +16,8 @@ in
     wl-clipboard
   ];
   programs.nixvim = {
+    # nixvimもバージョンチェックで壊れるので無効化:rage:
+    version.enableNixpkgsReleaseCheck = false;
     enable = cfg.nixvim.enable;
     defaultEditor = true;
 
