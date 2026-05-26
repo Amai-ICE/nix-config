@@ -27,6 +27,10 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -60,7 +64,7 @@
       };
       homeConfigurations = {
         amaiice = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
             ./config/home/default.nix
