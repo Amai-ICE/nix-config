@@ -85,6 +85,7 @@
     };
 
     game = {
+      lutris.enable = true;
       prismlauncher = {
         enable = true;
         jdks = with pkgs; [

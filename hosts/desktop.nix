@@ -92,7 +92,6 @@
         enable = true;
         openFirewall = true;
       };
-      lutris.enable = true;
       wivrn = {
         enable = true;
         cudaSupport = true;

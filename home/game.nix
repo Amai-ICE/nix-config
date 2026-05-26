@@ -18,4 +18,7 @@ in
           prismlauncher
       )
     ];
+  programs.lutris = {
+    enable = cfg.lutris.enable;
+  };
 }
