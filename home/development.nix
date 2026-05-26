@@ -9,8 +9,6 @@ let
   cfg = config.my.home.development;
 in
 {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-
   home.packages =
     (lib.optionals cfg.jetbrains.enable cfg.jetbrains.products)
     ++ (lib.optionals cfg.unityhub.enable [ pkgs.unityhub ])
@@ -33,5 +31,4 @@ in
   programs.git.enable = cfg.git.enable;
   programs.gh.enable = cfg.gh.enable;
   programs.lazygit.enable = cfg.lazygit.enable;
-  programs.nixvim.enable = cfg.nixvim.enable;
 }

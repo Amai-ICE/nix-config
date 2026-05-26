@@ -1,6 +1,7 @@
 {
   imports = [
     ./terminal
+    ./development/nixvim.nix
 
     ./art.nix
     ./bashrc.nix
