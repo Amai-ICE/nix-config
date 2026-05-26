@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.stateVersion = "25.05";
+  # home managerのバージョンチェックのせいでビルドできないので無視
+  home.enableNixpkgsReleaseCheck = false;
   nixpkgs.config.allowUnfree = true;
 
   my.home = {
