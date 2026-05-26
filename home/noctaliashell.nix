@@ -685,9 +685,6 @@ in
           "wallpaperChangeMode" = "random";
         };
       };
-
-      # noctalia daemon.
-      systemd.enable = true;
     };
   };
 }
