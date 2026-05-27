@@ -2,6 +2,7 @@
 {
   options.my.home.game = {
     lutris.enable = lib.mkEnableOption "Enable Lutris";
+    bottles.enable = lib.mkEnableOption "Enable bottles";
     prismlauncher = {
       enable = lib.mkEnableOption "Enable PrismLauncher";
       jdks = lib.mkOption {

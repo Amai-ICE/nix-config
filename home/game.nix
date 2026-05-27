@@ -10,15 +10,24 @@ in
 {
   home.packages =
     with pkgs;
-    lib.optionals cfg.prismlauncher.enable [
+
+    (lib.optionals cfg.prismlauncher.enable [
       (
         if cfg.prismlauncher.jdks != null then
           prismlauncher.override { jdks = cfg.prismlauncher.jdks; }
         else
           prismlauncher
       )
-    ];
+    ])
+    ++ [ (lib.optionals cfg.bottles.enable bottles) ];
   programs.lutris = {
     enable = cfg.lutris.enable;
   };
+  nixpkgs.overlays = [
+    (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+    })
+  ];
 }
