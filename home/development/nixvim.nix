@@ -18,6 +18,8 @@ in
   programs.nixvim = {
     # nixvimもバージョンチェックで壊れるので無効化:rage:
     version.enableNixpkgsReleaseCheck = false;
+
+    nixpkgs.config.allowUnfree = true;
     enable = cfg.nixvim.enable;
     defaultEditor = true;
 
