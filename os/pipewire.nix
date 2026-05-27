@@ -5,6 +5,7 @@
     services.pipewire = {
       enable = true;
       pulse.enable = config.my.os.pipewire.pulseAudioSupport;
+      wireplumber.enable = true;
     };
   };
 }
