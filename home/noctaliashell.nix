@@ -15,6 +15,8 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.gpu-screen-recorder
+      pkgs.noctalia-qs
+      pkgs.fastfetch
     ];
     programs.noctalia-shell = {
       enable = true;
