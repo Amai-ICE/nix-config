@@ -3,6 +3,7 @@
     ./terminal
     ./development/nixvim.nix
 
+    ./audio.nix
     ./art.nix
     ./bashrc.nix
     ./browser.nix

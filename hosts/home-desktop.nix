@@ -74,6 +74,10 @@
       };
     };
 
+    audio = {
+      easyeffects.enable = true;
+    };
+
     art = {
       krita.enable = true;
       gimp.enable = true;

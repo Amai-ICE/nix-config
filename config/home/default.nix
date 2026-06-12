@@ -1,6 +1,7 @@
 { options, ... }:
 {
   imports = [
+    ./audio.nix
     ./bashrc.nix
     ./theme.nix
     ./record.nix
