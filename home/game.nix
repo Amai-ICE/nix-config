@@ -19,7 +19,10 @@ in
           prismlauncher
       )
     ])
-    ++ [ (lib.optionals cfg.bottles.enable bottles) ];
+    ++ lib.optionals cfg.bottles.enable [
+      bottles
+      freetype
+    ];
   programs.lutris = {
     enable = cfg.lutris.enable;
   };
