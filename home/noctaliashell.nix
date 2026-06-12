@@ -18,6 +18,9 @@ in
       pkgs.noctalia-qs
       pkgs.fastfetch
     ];
+
+    services.awww.enable = true;
+
     programs.noctalia-shell = {
       enable = true;
 
@@ -114,15 +117,39 @@ in
           "widgets" = {
             "center" = [
               {
-                "colorizeIcons" = false;
-                "hideMode" = "visible";
-                "id" = "ActiveWindow";
-                "maxWidth" = 600;
-                "scrollingMode" = "hover";
-                "showIcon" = true;
-                "showText" = true;
-                "textColor" = "none";
-                "useFixedWidth" = false;
+                compactMode = true;
+                diskPath = "/";
+                iconColor = "none";
+                showCpuCores = true;
+                showCpuFreq = false;
+                showCpuTemp = true;
+                showCpuUsage = true;
+                showDiskAvailable = false;
+                showDiskUsage = false;
+                showDiskUsageAsPercent = false;
+                showGpuTemp = false;
+                showLoadAverage = false;
+                showMemoryAsPercent = false;
+                showMemoryUsage = true;
+                showNetworkStats = true;
+                showSwapUsage = false;
+                textColor = "none";
+                useMonospaceFont = true;
+                usePadding = false;
+                id = "SystemMonitor";
+              }
+              {
+                id = "plugin:privacy-indicator";
+                defaultSetting = {
+                  activeColor = "primary";
+                  camFilterRegex = "";
+                  enableToast = true;
+                  hideInteractive = false;
+                  iconSpacng = 4;
+                  interactiveColor = "none";
+                  micFilterRegex = "";
+                  removeMargins = false;
+                };
               }
             ];
             "left" = [
@@ -146,6 +173,17 @@ in
                 "showBadge" = true;
                 "showLabelsOnlyWhenOccupied" = true;
                 "unfocusedIconsOpacity" = 1;
+              }
+              {
+                colorizeIcons = false;
+                hideMode = "visible";
+                id = "ActiveWindow";
+                maxWidth = 300;
+                scrollingMode = "hover";
+                showIcon = true;
+                showText = true;
+                textColor = "none";
+                useFixedWidth = true;
               }
             ];
             "right" = [
@@ -363,7 +401,7 @@ in
           "clockFormat" = "hh\\nmm";
           "clockStyle" = "custom";
           "compactLockScreen" = false;
-          "dimmerOpacity" = 0.2;
+          "dimmerOpacity" = 0.1;
           "enableBlurBehind" = true;
           "enableLockScreenCountdown" = true;
           "enableLockScreenMediaControls" = false;
@@ -402,7 +440,7 @@ in
           "lockScreenMonitors" = [ ];
           "lockScreenTint" = 0;
           "passwordChars" = false;
-          "radiusRatio" = 0.2;
+          "radiusRatio" = 2;
           "reverseScroll" = false;
           "scaleRatio" = 1;
           "screenRadiusRatio" = 1;
@@ -631,7 +669,7 @@ in
           "fontDefaultScale" = 1;
           "fontFixed" = "monospace";
           "fontFixedScale" = 1;
-          "panelBackgroundOpacity" = 0.93;
+          "panelBackgroundOpacity" = 0.33;
           "panelsAttachedToBar" = true;
           "scrollbarAlwaysVisible" = true;
           "settingsPanelMode" = "attached";
