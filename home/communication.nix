@@ -9,6 +9,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    (lib.mkIf cfg.discord.enable discord)
+    (lib.mkIf cfg.discord.enable vesktop)
   ];
 }
