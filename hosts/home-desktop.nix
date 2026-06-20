@@ -75,7 +75,7 @@
     };
 
     audio = {
-      easyeffects.enable = true;
+      easyeffects.enable = false;
     };
 
     art = {
