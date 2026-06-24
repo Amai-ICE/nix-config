@@ -12,7 +12,8 @@ in
   home.packages =
     (lib.optionals cfg.jetbrains.enable cfg.jetbrains.products)
     ++ (lib.optionals cfg.unityhub.enable [ pkgs.unityhub ])
-    ++ (lib.optionals cfg.nixfmt.enable [ pkgs.nixfmt ]);
+    ++ (lib.optionals cfg.nixfmt.enable [ pkgs.nixfmt ])
+    ++ (lib.optionals cfg.mission-center.enable [ pkgs.mission-center ]);
 
   programs.vscode = lib.mkIf cfg.vscode.enable {
     enable = true;

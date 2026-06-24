@@ -14,6 +14,8 @@
     nixvim.enable = lib.mkEnableOption "Enable nixvim";
     unityhub.enable = lib.mkEnableOption "Enable Unity Hub";
     nixfmt.enable = lib.mkEnableOption "Enable nixfmt";
+    mission-center.enable = lib.mkEnableOption "Enable mission center";
+
     jetbrains = {
       enable = lib.mkEnableOption "Enable JetBrains toolbox/products";
       products = lib.mkOption {

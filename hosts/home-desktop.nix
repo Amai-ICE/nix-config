@@ -63,6 +63,7 @@
       nixvim.enable = true;
       unityhub.enable = true;
       nixfmt.enable = true;
+      mission-center.enable = true;
       jetbrains = {
         enable = true;
         products = with pkgs; [
@@ -114,7 +115,9 @@
     };
 
     webBrowser.firefox.enable = true;
-    communication.discord.enable = true;
+    communication = {
+      discord.enable = true;
+    };
 
     media = {
       pavucontrol.enable = true;
