@@ -85,6 +85,7 @@
     };
     windowManager = {
       niri.enable = true;
+      plasma6.enable = true;
     };
 
     game = {
