@@ -2,5 +2,6 @@
 {
   options.my.home.communication = {
     discord.enable = lib.mkEnableOption "Enable Discord";
+    cinny.enable = lib.mkEnableOption "Enable Cinny";
   };
 }
