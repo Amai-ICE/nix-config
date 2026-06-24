@@ -14,8 +14,6 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    astal.url = "github:aylur/astal";
-    ags.url = "github:aylur/ags";
   };
 
   outputs =
