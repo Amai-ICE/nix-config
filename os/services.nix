@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.my.os.services;
 in
@@ -8,4 +13,9 @@ in
   };
 
   programs.kdeconnect.enable = cfg.kdeconnect.enable;
+
+  environment.systemPackages = lib.mkIf cfg.kdeconnect.enable [
+    pkgs.sshfs
+    pkgs.sshfs-fuse
+  ];
 }
