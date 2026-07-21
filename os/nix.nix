@@ -4,13 +4,17 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    nixpkgs.config.allowUnfree = cfg.allowUnfree;
-
     nix.settings = {
       auto-optimise-store = cfg.autoOptimiseStore;
       experimental-features = lib.optionals cfg.allowExperimentalFeatures [
         "nix-command"
         "flakes"
+      ];
+      #       kernelPackage = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v4;
+
+      substituters = [ "https://attic.xuyh0120.win/lantian" ];
+      trusted-public-keys = [
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       ];
     };
 

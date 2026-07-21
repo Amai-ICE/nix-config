@@ -6,10 +6,10 @@
   nixpkgs.config.allowUnfree = true;
 
   my.home = {
-    noctaliashell.enable = true;
+    noctaliashell.enable = false;
 
     windowManager = {
-      niri.enable = true;
+      niri.enable = false;
     };
 
     terminal = {

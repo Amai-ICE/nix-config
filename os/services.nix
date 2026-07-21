@@ -13,6 +13,7 @@ in
   };
 
   programs.kdeconnect.enable = cfg.kdeconnect.enable;
+  programs.kclock.enable = cfg.kclock.enable;
 
   environment.systemPackages = lib.mkIf cfg.kdeconnect.enable [
     pkgs.sshfs

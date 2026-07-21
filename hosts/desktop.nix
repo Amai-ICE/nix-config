@@ -15,8 +15,10 @@
       "input"
       "adbusers"
       "networkmanager"
+      "kvm"
     ];
   };
+  environment.systemPackages = [ pkgs.androidenv.androidPkgs.platform-tools ];
 
   #日本人向け設定.
   i18n.defaultLocale = "ja_JP.UTF-8";
@@ -53,13 +55,14 @@
         nvidiaSettings = true;
         modesetting.enable = true;
         kernelModule.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
+        package = config.boot.kernelPackages.nvidiaPackages.latest;
       };
     };
 
     services = {
       printing.enable = true;
       kdeconnect.enable = true;
+      kclock.enable = true;
     };
 
     security = {
@@ -68,7 +71,7 @@
     };
 
     boot = {
-      kernelPackage = pkgs.linuxPackages_xanmod;
+      kernelPackage = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
       systemd-boot.enable = true;
       useSystemdInitrd = true;
     };
@@ -84,7 +87,7 @@
       ly.enable = true;
     };
     windowManager = {
-      niri.enable = true;
+      niri.enable = false;
       plasma6.enable = true;
     };
 

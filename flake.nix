@@ -14,6 +14,9 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+    };
   };
 
   outputs =
@@ -21,19 +24,22 @@
       nixpkgs,
       home-manager,
       nixvim,
+      nix-cachyos-kernel,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        overlays = [ nix-cachyos-kernel.overlays.pinned ];
         config.allowUnfree = true;
       };
     in
     {
       nixosConfigurations = {
         nixos = inputs.nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit system pkgs;
+
           modules = [
             ./hosts/common/network-profiles.nix
             ./hosts/common/hardware-configuration.nix
@@ -44,18 +50,19 @@
             ./os/default.nix
 
             ./hosts/desktop.nix
+
             /*
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "hm-bak";
-                home-manager.extraSpecialArgs = { inherit inputs; };
-                home-manager.sharedModules = [
-                  ./config/home/default.nix
-                ];
-                home-manager.users.amaiice = import ./home/default.nix;
-              }
+               home-manager.nixosModules.home-manager
+               {
+                 home-manager.useGlobalPkgs = true;
+                 home-manager.useUserPackages = true;
+                 home-manager.backupFileExtension = "hm-bak";
+                 home-manager.extraSpecialArgs = { inherit inputs; };
+                 home-manager.sharedModules = [
+                   ./config/home/default.nix
+                 ];
+                 home-manager.users.amaiice = import ./home/default.nix;
+               }
             */
           ];
         };
