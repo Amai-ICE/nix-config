@@ -32,5 +32,15 @@ in
         doCheck = !prev.stdenv.hostPlatform.isi686;
       };
     })
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (python-final: python-prev: {
+          patool = python-prev.patool.overrideAttrs (oldAttrs: {
+            doCheck = false;
+            doInstallCheck = false;
+          });
+        })
+      ];
+    })
   ];
 }

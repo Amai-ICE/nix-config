@@ -13,5 +13,6 @@ in
     (lib.mkIf cfg.reaper.enable reaper)
     (lib.mkIf cfg.audacity.enable audacity)
     (lib.mkIf cfg.openutau.enable openutau)
+    (lib.mkIf cfg.yabridge.enable yabridgectl)
   ];
 }

@@ -12,12 +12,16 @@ in
     environment.variables = lib.mkIf cfg.allowReplaceLDLibraryPath {
       LD_LIBRARY_PATH = lib.mkDefault "$NIX_LD_LIBRARY_PATH";
     };
+    environment.systemPackages = with pkgs; [
+      libfaketime
+    ];
 
     programs.nix-ld = {
       enable = true;
       # TODO: make this configurable
       # From https://github.com/NixOS/nixpkgs/issues/240444#issuecomment-1988645885
       libraries = with pkgs; [
+        libfaketime
         desktop-file-utils
         xorg.libXcomposite
         xorg.libXtst

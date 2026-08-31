@@ -11,7 +11,7 @@ in
 
   qt = {
     enable = cfg.qt.enable;
-    platformTheme.name = "kde6";
+    platformTheme.name = "kde";
 
     style = {
       name = cfg.style;

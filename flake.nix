@@ -31,7 +31,19 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ nix-cachyos-kernel.overlays.pinned ];
+        overlays = [
+          nix-cachyos-kernel.overlays.pinned
+          (final: prev: {
+            pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+              (python-final: python-prev: {
+                patool = python-prev.patool.overrideAttrs (oldAttrs: {
+                  doCheck = false;
+                  doInstallCheck = false;
+                });
+              })
+            ];
+          })
+        ];
         config.allowUnfree = true;
       };
     in

@@ -3,7 +3,6 @@
   home.stateVersion = "25.05";
   # home managerのバージョンチェックのせいでビルドできないので無視
   home.enableNixpkgsReleaseCheck = false;
-  nixpkgs.config.allowUnfree = true;
 
   my.home = {
     noctaliashell.enable = false;
@@ -86,6 +85,8 @@
     };
 
     daw = {
+
+      yabridge.enable = true;
       reaper.enable = true;
       openutau.enable = true;
       vital.enable = true;

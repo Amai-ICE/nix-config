@@ -19,7 +19,7 @@ in
     # nixvimもバージョンチェックで壊れるので無効化:rage:
     version.enableNixpkgsReleaseCheck = false;
 
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.pkgs = pkgs;
     enable = cfg.nixvim.enable;
     defaultEditor = true;
 
