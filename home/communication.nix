@@ -9,7 +9,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    (lib.mkIf cfg.discord.enable vesktop)
+    (lib.mkIf cfg.discord.enable discord)
     (lib.mkIf cfg.cinny.enable cinny-desktop)
   ];
 }
